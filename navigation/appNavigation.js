@@ -30,6 +30,7 @@ export default function AppNavigation() {
           <Stack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen} />
           <Stack.Screen name="Login" options={{headerShown: false}} component={LoginScreen} />
           <Stack.Screen name="SignUp" options={{headerShown: false}} component={SignUpScreen} />
+          <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     )
