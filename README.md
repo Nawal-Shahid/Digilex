@@ -96,11 +96,6 @@ export const firebaseConfig = {
 
 ---
 
-##  License
-
-MIT License
-
----
 
 ## 🙌 Author
 
@@ -112,5 +107,6 @@ MIT License
 ## 🌟 Show Your Support
 
 If you like this project, feel free to ⭐ star the repo and follow for more!
+
 
 
