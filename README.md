@@ -4,6 +4,13 @@ This is a mobile application built using **React Native** with **Expo**. It incl
 
 ---
 
+## Download App
+
+[![Download APK](https://img.shields.io/badge/Download-APK-pastelpurple?style=for-the-badge&logo=android)](https://expo.dev/artifacts/eas/9Mwip37jErL69cNdixRxhq.apk)
+
+> You may need to allow installation from unknown sources on your Android device.
+
+
 ## Features
 
 - Firebase Email/Password Authentication
@@ -107,6 +114,7 @@ export const firebaseConfig = {
 ## 🌟 Show Your Support
 
 If you like this project, feel free to ⭐ star the repo and follow for more!
+
 
 
 
