@@ -15,12 +15,14 @@ import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebase';
+import { useGoogleAuth } from '../config/auth';
 
 export default function LoginScreen() {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { handleGoogleLogin, request } = useGoogleAuth();
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -41,6 +43,17 @@ export default function LoginScreen() {
     }
   };
 
+  const signInWithGoogle = async () => {
+    try {
+      const userCred = await handleGoogleLogin();
+      Alert.alert('Login Success', `Welcome ${userCred.user.displayName}`);
+      navigation.replace('Home'); // or any other screen you want
+    } catch (error) {
+      Alert.alert('Login Failed', error.message);
+      console.log(error);
+    }
+  };
+
   return (
     <ImageBackground
       source={require('../assets/images/loginimg.jpg')}
@@ -48,7 +61,16 @@ export default function LoginScreen() {
       resizeMode="cover"
     >
       <SafeAreaView style={styles.safeArea}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+        <TouchableOpacity
+          onPress={() => {
+            if (navigation.canGoBack()) {
+              navigation.goBack();
+            } else {
+              navigation.navigate('Welcome');
+            }
+          }}
+          style={styles.backButton}
+        >
           <ArrowLeftIcon size={24} color="#fff" />
         </TouchableOpacity>
 
@@ -93,7 +115,11 @@ export default function LoginScreen() {
 
           <Text style={styles.or}>or</Text>
 
-          <TouchableOpacity style={styles.socialButton}>
+          <TouchableOpacity
+            onPress={signInWithGoogle}
+            style={styles.socialButton}
+            disabled={!request}
+          >
             <Image
               source={require('../assets/icons/google.png')}
               style={styles.socialIcon}
@@ -112,7 +138,6 @@ export default function LoginScreen() {
     </ImageBackground>
   );
 }
-
 
 const styles = StyleSheet.create({
   background: {
