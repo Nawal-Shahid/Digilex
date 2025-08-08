@@ -90,7 +90,7 @@ export const firebaseConfig = {
 ---
 
 ## ✨ Screens
-
+* **WelcomeScreen**
 * **LoginScreen**
 * **SignupScreen**
 * **Dashboard (HomeScreen)**
@@ -120,6 +120,7 @@ export const firebaseConfig = {
 ## 🌟 Show Your Support
 
 If you like this project, feel free to ⭐ star the repo and follow for more!
+
 
 
 
