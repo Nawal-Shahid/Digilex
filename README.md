@@ -30,3 +30,87 @@ This is a mobile application built using **React Native** with **Expo**. It incl
 ├── app.json            # Expo project configuration
 ├── tailwind.config.js  # Tailwind CSS configuration
 ```
+
+---
+
+### 2. Install dependencies
+
+If using **npm**:
+
+```bash
+npm install
+```
+
+Or with **yarn**:
+
+```bash
+yarn install
+```
+
+### 3. Start the Expo server
+
+```bash
+npx expo start
+```
+
+---
+
+## 🔌 Firebase Setup
+
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project
+3. Enable **Email/Password Authentication**
+4. Add a web app to get Firebase config
+5. Replace the config inside `config/firebase.js` like this:
+
+```js
+export const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID",
+};
+```
+
+---
+
+## ✨ Screens
+
+* **LoginScreen**
+* **SignupScreen**
+* **Dashboard (HomeScreen)**
+
+> Navigation handled via `@react-navigation/native`
+
+---
+
+## 🛠️ Built With
+
+* [React Native](https://reactnative.dev/)
+* [Expo](https://expo.dev/)
+* [Firebase Auth](https://firebase.google.com/docs/auth)
+* [Tailwind CSS via NativeWind](https://www.nativewind.dev/)
+* [React Navigation](https://reactnavigation.org/)
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 🙌 Author
+
+**Nawal Shahid**
+📬 [@Nawal-Shahid](https://github.com/Nawal-Shahid)
+
+---
+
+## 🌟 Show Your Support
+
+If you like this project, feel free to ⭐ star the repo and follow for more!
+
+````
