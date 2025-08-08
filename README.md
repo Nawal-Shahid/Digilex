@@ -17,3 +17,16 @@ This is a mobile application built using **React Native** with **Expo**. It incl
 
 ## Project Structure
 
+
+```
+.
+├── assets/             # Static assets (images, fonts, etc.)
+├── config/             # Firebase and other configuration files
+├── hooks/              # Custom React hooks
+├── navigation/         # Navigation setup using React Navigation
+├── screens/            # UI screens (Login, Signup, Dashboard)
+├── theme/              # Tailwind theme configuration
+├── App.js              # Entry point of the application
+├── app.json            # Expo project configuration
+├── tailwind.config.js  # Tailwind CSS configuration
+```
