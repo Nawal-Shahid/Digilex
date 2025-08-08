@@ -55,7 +55,7 @@ npx expo start
 
 ---
 
-## 🔌 Firebase Setup
+## Firebase Setup
 
 1. Go to [Firebase Console](https://console.firebase.google.com/)
 2. Create a new project
@@ -86,7 +86,7 @@ export const firebaseConfig = {
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 * [React Native](https://reactnative.dev/)
 * [Expo](https://expo.dev/)
@@ -96,7 +96,7 @@ export const firebaseConfig = {
 
 ---
 
-## 📜 License
+##  License
 
 MIT License
 
@@ -113,4 +113,4 @@ MIT License
 
 If you like this project, feel free to ⭐ star the repo and follow for more!
 
-````
+
