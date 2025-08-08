@@ -10,6 +10,10 @@ This is a mobile application built using **React Native** with **Expo**. It incl
 
 > You may need to allow installation from unknown sources on your Android device.
 
+## 🖼️ Preview
+
+> Screenshots of the app in action – welcome, Login, Signup, and Home screens.
+<img width="3780" height="1890" alt="Untitled design" src="https://github.com/user-attachments/assets/092da09c-2d12-4b88-8f4b-4265b9710ea7" />
 
 
 ## Features
@@ -115,6 +119,7 @@ export const firebaseConfig = {
 ## 🌟 Show Your Support
 
 If you like this project, feel free to ⭐ star the repo and follow for more!
+
 
 
 
