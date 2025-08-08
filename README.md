@@ -13,7 +13,7 @@ This is a mobile application built using **React Native** with **Expo**. It incl
 
 ## 🖼️ Preview
 
-> Screenshots of the app in action – welcome, Signup, Login, and Home screens.
+> Screenshots of the app in action – Welcome, Signup, Login, and Home screens.
 <img width="3780" height="1890" alt="Untitled design" src="https://github.com/user-attachments/assets/092da09c-2d12-4b88-8f4b-4265b9710ea7" />
 
 
@@ -120,6 +120,7 @@ export const firebaseConfig = {
 ## 🌟 Show Your Support
 
 If you like this project, feel free to ⭐ star the repo and follow for more!
+
 
 
 
