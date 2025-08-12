@@ -13,7 +13,12 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+  signOut,
+} from 'firebase/auth';
 import { auth } from '../config/firebase';
 
 export default function SignUpScreen() {
@@ -29,17 +34,37 @@ export default function SignUpScreen() {
       return;
     }
 
-    if (password.length < 6) {
-      Alert.alert('Weak Password', 'Password must be at least 6 characters long.');
+    // Strong password validation
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      Alert.alert(
+        'Weak Password',
+        'Password must be at least 8 characters long and include at least 1 letter, 1 number, and 1 special character.'
+      );
       return;
     }
 
     setIsLoading(true);
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(auth.currentUser, { displayName: name });
-      Alert.alert('Success', 'Account created successfully!');
-      navigation.navigate('Login');
+
+      // Update display name
+      await updateProfile(userCredential.user, { displayName: name });
+
+      // Send verification email
+      await sendEmailVerification(userCredential.user);
+
+      Alert.alert(
+        'Verify Your Email',
+        'We have sent a verification link to your email. Please verify your account before logging in.'
+      );
+
+      // Sign the user out so they can only log in after verifying
+      await signOut(auth);
+
+      // Navigate to Login
+      navigation.replace('Login');
     } catch (err) {
       console.log('Sign up error:', err.message);
       Alert.alert('Sign Up Failed', err.message);
@@ -123,7 +148,6 @@ export default function SignUpScreen() {
     </ImageBackground>
   );
 }
-
 
 const styles = StyleSheet.create({
   background: {
