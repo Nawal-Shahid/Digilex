@@ -34,6 +34,16 @@ export default function SignUpScreen() {
       return;
     }
 
+    // Name validation (alphabets and spaces only)
+    const nameRegex = /^[A-Za-z\s]+$/;
+    if (!nameRegex.test(name.trim())) {
+      Alert.alert(
+        'Invalid Name',
+        'Name should only contain alphabets and spaces.'
+      );
+      return;
+    }
+
     // Strong password validation
     const passwordRegex =
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;

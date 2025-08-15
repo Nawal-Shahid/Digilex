@@ -6,6 +6,9 @@ import HomeScreen from '../screens/HomeScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import Lessons from '../screens/Lessons';
+import Capital from '../screens/Capital';
+import Small from '../screens/Small';
 import useAuth from '../hooks/useAuth';
 import { signOut } from 'firebase/auth';
 import { auth } from '../config/firebase';
@@ -26,16 +29,42 @@ export default function AppNavigation() {
   }, [user]);
 
   if (user && user.emailVerified) {
-    // Verified user → send to Home
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
+          <Stack.Screen 
+            name="Home" 
+            options={{ headerShown: false }} 
+            component={HomeScreen} 
+          />
+          <Stack.Screen 
+            name="Lessons" 
+            options={{ 
+              headerShown: false,
+              gestureEnabled: true
+            }} 
+            component={Lessons} 
+          />
+          <Stack.Screen 
+            name="Capital" 
+            options={{ 
+              title: 'Capital Letters',
+              headerBackTitle: 'Back'
+            }} 
+            component={Capital} 
+          />
+          <Stack.Screen 
+            name="Small" 
+            options={{ 
+              title: 'Small Letters',
+              headerBackTitle: 'Back'
+            }} 
+            component={Small} 
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
   } else {
-    // No user OR unverified → send to Welcome/Login/SignUp
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Welcome">
