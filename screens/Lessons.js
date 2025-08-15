@@ -96,13 +96,13 @@ export default function LessonsScreen({ navigation }) {
           <View style={styles.progressContainer}>
             <View style={styles.progressItem}>
               <View style={styles.progressCircle}>
-                <Text style={styles.progressText}>25%</Text>
+                <Text style={styles.progressText}>0%</Text>
               </View>
               <Text style={styles.progressLabel}>Capital</Text>
             </View>
             <View style={styles.progressItem}>
               <View style={styles.progressCircle}>
-                <Text style={styles.progressText}>10%</Text>
+                <Text style={styles.progressText}>0%</Text>
               </View>
               <Text style={styles.progressLabel}>Small</Text>
             </View>

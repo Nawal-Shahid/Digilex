@@ -179,21 +179,21 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.statsContainer}>
             <View style={styles.statsRow}>
               <View style={[styles.statCard, darkMode && styles.darkCard]}>
-                <Text style={styles.statValue}>6645</Text>
+                <Text style={styles.statValue}>0</Text>
                 <Text style={[styles.statLabel, darkMode && styles.darkSubText]}>Total XP</Text>
               </View>
               <View style={[styles.statCard, darkMode && styles.darkCard]}>
-                <Text style={styles.statValue}>198</Text>
+                <Text style={styles.statValue}>0</Text>
                 <Text style={[styles.statLabel, darkMode && styles.darkSubText]}>Day Streak</Text>
               </View>
             </View>
             <View style={styles.statsRow}>
               <View style={[styles.statCard, darkMode && styles.darkCard]}>
-                <Text style={styles.statValue}>Bronze</Text>
+                <Text style={styles.statValue}>Iron</Text>
                 <Text style={[styles.statLabel, darkMode && styles.darkSubText]}>Current League</Text>
               </View>
               <View style={[styles.statCard, darkMode && styles.darkCard]}>
-                <Text style={styles.statValue}>5</Text>
+                <Text style={styles.statValue}>0</Text>
                 <Text style={[styles.statLabel, darkMode && styles.darkSubText]}>Courses Completed</Text>
               </View>
             </View>
@@ -205,15 +205,15 @@ export default function HomeScreen({ navigation }) {
             <View style={[styles.achievement, darkMode && styles.darkCard]}>
               <Text style={styles.achievementIcon}>🔥</Text>
               <View style={styles.achievementText}>
-                <Text style={[styles.achievementTitle, darkMode && styles.darkText]}>Wildfire</Text>
-                <Text style={[styles.achievementDesc, darkMode && styles.darkSubText]}>250 Day Streak Goal</Text>
+                <Text style={[styles.achievementTitle, darkMode && styles.darkText]}>Ready, Set, Go!</Text>
+                <Text style={[styles.achievementDesc, darkMode && styles.darkSubText]}>For Sign Up</Text>
               </View>
             </View>
             <View style={[styles.achievement, darkMode && styles.darkCard]}>
               <Text style={styles.achievementIcon}>📚</Text>
               <View style={styles.achievementText}>
-                <Text style={[styles.achievementTitle, darkMode && styles.darkText]}>Sage</Text>
-                <Text style={[styles.achievementDesc, darkMode && styles.darkSubText]}>Earn 7500 XP</Text>
+                <Text style={[styles.achievementTitle, darkMode && styles.darkText]}>Knowledge Seeker</Text>
+                <Text style={[styles.achievementDesc, darkMode && styles.darkSubText]}>For Enthusiasm for Learning</Text>
               </View>
             </View>
           </View>
@@ -223,7 +223,7 @@ export default function HomeScreen({ navigation }) {
             style={[styles.startLessonButton, darkMode && styles.darkButton]}
             onPress={() => navigation.navigate('Lessons')}
           >
-            <Text style={styles.startLessonText}>🚀 Start Learning</Text>
+            <Text style={styles.startLessonText}>Start Learning</Text>
           </TouchableOpacity>
         </ScrollView>
       </SafeAreaView>

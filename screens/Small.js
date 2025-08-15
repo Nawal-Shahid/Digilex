@@ -4,21 +4,20 @@ import { Alert, PanResponder, StyleSheet, Text, TouchableOpacity, View } from 'r
 import Svg, { Polyline } from 'react-native-svg';
 
 const letters = [
-{
-  id: 1,
-  name: 'a',
-  tracePath: [
-    { x: 120, y: 180 },  // 1. top of circle
-    { x: 100, y: 160 },  // 2. upper left
-    { x: 110, y: 130 },  // 3. bottom left
-    { x: 130, y: 130 },  // 4. bottom right
-    { x: 140, y: 155 },  // 5. upper right
-    { x: 120, y: 180 },  // 6. back to top (complete circle)
-    { x: 140, y: 190 },  // 7. stem top
-    { x: 140, y: 130 }   // 8. stem bottom
-  ]
-}
-,
+  {
+    id: 1,
+    name: 'a',
+    tracePath: [
+      { x: 120, y: 180 },  // 1. top of circle
+      { x: 100, y: 160 },  // 2. upper left
+      { x: 110, y: 130 },  // 3. bottom left
+      { x: 130, y: 130 },  // 4. bottom right
+      { x: 140, y: 155 },  // 5. upper right
+      { x: 120, y: 180 },  // 6. back to top (complete circle)
+      { x: 140, y: 190 },  // 7. stem top
+      { x: 140, y: 130 }   // 8. stem bottom
+    ]
+  },
   {
     id: 2,
     name: 'b',
@@ -30,283 +29,280 @@ const letters = [
     ]
   },
   {
-  id: 3,
-  name: 'c',
-  tracePath: [
-    { x: 150, y: 100 },
-    { x: 120, y: 80 },
-    { x: 90, y: 110 },
-    { x: 80, y: 160 },
-    { x: 110, y: 190 },
-    { x: 140, y: 180 }
-  ]
-},
-
-{
-  id: 4,
-  name: 'd',
-  tracePath: [
-    { x: 140, y: 80 },
-    { x: 140, y: 220 },
-    { x: 100, y: 160 },
-    { x: 140, y: 180 },
-    { x: 110, y: 140 },
-    { x: 140, y: 120 }
-  ]
-},
-{
-  id: 5,
-  name: 'e',
-  tracePath: [
-    { x: 110, y: 160 },  // 1. Start at center bar
-    { x: 130, y: 160 },  // 2. Move right on bar
-    { x: 140, y: 150 },  // 3. Upper right curve
-    { x: 130, y: 130 },  // 4. Downward right side
-    { x: 100, y: 130 },  // 5. Bottom left
-    { x: 90, y: 150 },   // 6. Curve back up to left
-    { x: 110, y: 160 }   // 7. Close loop back to start
-  ]
-},
-{
-  id: 6,
-  name: 'f',
-  tracePath: [
-    { x: 120, y: 100 },  // 1. Start top
-    { x: 100, y: 120 },  // 2. Curve left
-    { x: 120, y: 170 },  // 3. Stem continues down
-    { x: 120, y: 200 },  // 4. Stem bottom
-    { x: 90, y: 140 },   // 5. Crossbar start
-    { x: 150, y: 140 }   // 6. Crossbar end
-  ]
-}
-,
-{
-  id: 7,
-  name: 'g',
-  tracePath: [
-    { x: 120, y: 100 },
-    { x: 90, y: 130 },
-    { x: 100, y: 170 },
-    { x: 130, y: 180 },
-    { x: 150, y: 160 },
-    { x: 130, y: 220 }
-  ]
-},
-{
-  id: 8,
-  name: 'h',
-  tracePath: [
-    { x: 90, y: 80 },
-    { x: 90, y: 220 },
-    { x: 90, y: 150 },
-    { x: 130, y: 150 },
-    { x: 130, y: 220 },
-    { x: 130, y: 150 }
-  ]
-},
-{
-  id: 9,
-  name: 'i',
-  tracePath: [
-    { x: 110, y: 100 },
-    { x: 110, y: 180 },
-    { x: 110, y: 200 },
-    { x: 110, y: 210 },
-    { x: 110, y: 220 },
-    { x: 110, y: 230 }
-  ]
-},
-{
-  id: 10,
-  name: 'j',
-  tracePath: [
-    { x: 130, y: 100 },
-    { x: 130, y: 180 },
-    { x: 130, y: 200 },
-    { x: 120, y: 220 },
-    { x: 100, y: 210 },
-    { x: 90, y: 190 }
-  ]
-},
-{
-  id: 11,
-  name: 'k',
-  tracePath: [
-    { x: 100, y: 80 },
-    { x: 100, y: 220 },
-    { x: 100, y: 150 },
-    { x: 140, y: 100 },
-    { x: 100, y: 150 },
-    { x: 140, y: 200 }
-  ]
-},
-{
-  id: 12,
-  name: 'l',
-  tracePath: [
-    { x: 120, y: 80 },
-    { x: 120, y: 220 },
-    { x: 120, y: 220 },
-    { x: 120, y: 220 },
-    { x: 120, y: 220 },
-    { x: 120, y: 220 }
-  ]
-},
-{
-  id: 13,
-  name: 'm',
-  tracePath: [
-    { x: 80, y: 150 },
-    { x: 80, y: 100 },
-    { x: 100, y: 100 },
-    { x: 100, y: 150 },
-    { x: 120, y: 100 },
-    { x: 120, y: 150 }
-  ]
-},
-{
-  id: 14,
-  name: 'n',
-  tracePath: [
-    { x: 90, y: 150 },
-    { x: 90, y: 100 },
-    { x: 110, y: 100 },
-    { x: 110, y: 150 }
-  ]
-},
-{
-  id: 15,
-  name: 'o',
-  tracePath: [
-    { x: 100, y: 140 },
-    { x: 90, y: 120 },
-    { x: 100, y: 100 },
-    { x: 130, y: 100 },
-    { x: 140, y: 120 },
-    { x: 130, y: 140 },
-    { x: 100, y: 140 }
-  ]
-},
-{
-  id: 16,
-  name: 'p',
-  tracePath: [
-    { x: 100, y: 100 },
-    { x: 100, y: 220 },
-    { x: 100, y: 100 },
-    { x: 130, y: 100 },
-    { x: 130, y: 130 },
-    { x: 100, y: 130 }
-  ]
-},
-{
-  id: 17,
-  name: 'q',
-  tracePath: [
-    { x: 110, y: 140 },
-    { x: 100, y: 120 },
-    { x: 110, y: 100 },
-    { x: 140, y: 100 },
-    { x: 150, y: 120 },
-    { x: 140, y: 140 },
-    { x: 110, y: 140 },
-    { x: 130, y: 160 }
-  ]
-},
-{
-  id: 18,
-  name: 'r',
-  tracePath: [
-    { x: 100, y: 150 },
-    { x: 100, y: 100 },
-    { x: 120, y: 100 }
-  ]
-},
-{
-  id: 19,
-  name: 's',
-  tracePath: [
-    { x: 140, y: 110 },
-    { x: 110, y: 100 },
-    { x: 100, y: 120 },
-    { x: 120, y: 140 },
-    { x: 130, y: 160 },
-    { x: 100, y: 180 }
-  ]
-},
-{
-  id: 20,
-  name: 't',
-  tracePath: [
-    { x: 120, y: 80 },
-    { x: 120, y: 180 },
-    { x: 100, y: 100 },
-    { x: 140, y: 100 }
-  ]
-},
-{
-  id: 21,
-  name: 'u',
-  tracePath: [
-    { x: 90, y: 100 },
-    { x: 90, y: 150 },
-    { x: 110, y: 170 },
-    { x: 130, y: 150 },
-    { x: 130, y: 100 }
-  ]
-},
-{
-  id: 22,
-  name: 'v',
-  tracePath: [
-    { x: 90, y: 100 },
-    { x: 110, y: 170 },
-    { x: 130, y: 100 }
-  ]
-},
-{
-  id: 23,
-  name: 'w',
-  tracePath: [
-    { x: 80, y: 100 },
-    { x: 95, y: 170 },
-    { x: 110, y: 130 },
-    { x: 125, y: 170 },
-    { x: 140, y: 100 }
-  ]
-},
-{
-  id: 24,
-  name: 'x',
-  tracePath: [
-    { x: 100, y: 100 },
-    { x: 140, y: 160 },
-    { x: 140, y: 100 },
-    { x: 100, y: 160 }
-  ]
-},
-{
-  id: 25,
-  name: 'y',
-  tracePath: [
-    { x: 100, y: 100 },
-    { x: 120, y: 140 },
-    { x: 140, y: 100 },
-    { x: 120, y: 140 },
-    { x: 120, y: 200 }
-  ]
-},
-{
-  id: 26,
-  name: 'z',
-  tracePath: [
-    { x: 100, y: 100 },
-    { x: 140, y: 100 },
-    { x: 100, y: 160 },
-    { x: 140, y: 160 }
-  ]
-}
-  // Add more letters here up to z
+    id: 3,
+    name: 'c',
+    tracePath: [
+      { x: 150, y: 100 },
+      { x: 120, y: 80 },
+      { x: 90, y: 110 },
+      { x: 80, y: 160 },
+      { x: 110, y: 190 },
+      { x: 140, y: 180 }
+    ]
+  },
+  {
+    id: 4,
+    name: 'd',
+    tracePath: [
+      { x: 140, y: 80 },
+      { x: 140, y: 220 },
+      { x: 100, y: 160 },
+      { x: 140, y: 180 },
+      { x: 110, y: 140 },
+      { x: 140, y: 120 }
+    ]
+  },
+  {
+    id: 5,
+    name: 'e',
+    tracePath: [
+      { x: 110, y: 160 },  // 1. Start at center bar
+      { x: 130, y: 160 },  // 2. Move right on bar
+      { x: 140, y: 150 },  // 3. Upper right curve
+      { x: 130, y: 130 },  // 4. Downward right side
+      { x: 100, y: 130 },  // 5. Bottom left
+      { x: 90, y: 150 },   // 6. Curve back up to left
+      { x: 110, y: 160 }   // 7. Close loop back to start
+    ]
+  },
+  {
+    id: 6,
+    name: 'f',
+    tracePath: [
+      { x: 120, y: 100 },  // 1. Start top
+      { x: 100, y: 120 },  // 2. Curve left
+      { x: 120, y: 170 },  // 3. Stem continues down
+      { x: 120, y: 200 },  // 4. Stem bottom
+      { x: 90, y: 140 },   // 5. Crossbar start
+      { x: 150, y: 140 }   // 6. Crossbar end
+    ]
+  },
+  {
+    id: 7,
+    name: 'g',
+    tracePath: [
+      { x: 120, y: 100 },
+      { x: 90, y: 130 },
+      { x: 100, y: 170 },
+      { x: 130, y: 180 },
+      { x: 150, y: 160 },
+      { x: 130, y: 220 }
+    ]
+  },
+  {
+    id: 8,
+    name: 'h',
+    tracePath: [
+      { x: 90, y: 80 },
+      { x: 90, y: 220 },
+      { x: 90, y: 150 },
+      { x: 130, y: 150 },
+      { x: 130, y: 220 },
+      { x: 130, y: 150 }
+    ]
+  },
+  {
+    id: 9,
+    name: 'i',
+    tracePath: [
+      { x: 110, y: 100 },
+      { x: 110, y: 180 },
+      { x: 110, y: 200 },
+      { x: 110, y: 210 },
+      { x: 110, y: 220 },
+      { x: 110, y: 230 }
+    ]
+  },
+  {
+    id: 10,
+    name: 'j',
+    tracePath: [
+      { x: 130, y: 100 },
+      { x: 130, y: 180 },
+      { x: 130, y: 200 },
+      { x: 120, y: 220 },
+      { x: 100, y: 210 },
+      { x: 90, y: 190 }
+    ]
+  },
+  {
+    id: 11,
+    name: 'k',
+    tracePath: [
+      { x: 100, y: 80 },
+      { x: 100, y: 220 },
+      { x: 100, y: 150 },
+      { x: 140, y: 100 },
+      { x: 100, y: 150 },
+      { x: 140, y: 200 }
+    ]
+  },
+  {
+    id: 12,
+    name: 'l',
+    tracePath: [
+      { x: 120, y: 80 },
+      { x: 120, y: 220 },
+      { x: 120, y: 220 },
+      { x: 120, y: 220 },
+      { x: 120, y: 220 },
+      { x: 120, y: 220 }
+    ]
+  },
+  {
+    id: 13,
+    name: 'm',
+    tracePath: [
+      { x: 80, y: 150 },
+      { x: 80, y: 100 },
+      { x: 100, y: 100 },
+      { x: 100, y: 150 },
+      { x: 120, y: 100 },
+      { x: 120, y: 150 }
+    ]
+  },
+  {
+    id: 14,
+    name: 'n',
+    tracePath: [
+      { x: 90, y: 150 },
+      { x: 90, y: 100 },
+      { x: 110, y: 100 },
+      { x: 110, y: 150 }
+    ]
+  },
+  {
+    id: 15,
+    name: 'o',
+    tracePath: [
+      { x: 100, y: 140 },
+      { x: 90, y: 120 },
+      { x: 100, y: 100 },
+      { x: 130, y: 100 },
+      { x: 140, y: 120 },
+      { x: 130, y: 140 },
+      { x: 100, y: 140 }
+    ]
+  },
+  {
+    id: 16,
+    name: 'p',
+    tracePath: [
+      { x: 100, y: 100 },
+      { x: 100, y: 220 },
+      { x: 100, y: 100 },
+      { x: 130, y: 100 },
+      { x: 130, y: 130 },
+      { x: 100, y: 130 }
+    ]
+  },
+  {
+    id: 17,
+    name: 'q',
+    tracePath: [
+      { x: 110, y: 140 },
+      { x: 100, y: 120 },
+      { x: 110, y: 100 },
+      { x: 140, y: 100 },
+      { x: 150, y: 120 },
+      { x: 140, y: 140 },
+      { x: 110, y: 140 },
+      { x: 130, y: 160 }
+    ]
+  },
+  {
+    id: 18,
+    name: 'r',
+    tracePath: [
+      { x: 100, y: 150 },
+      { x: 100, y: 100 },
+      { x: 120, y: 100 }
+    ]
+  },
+  {
+    id: 19,
+    name: 's',
+    tracePath: [
+      { x: 140, y: 110 },
+      { x: 110, y: 100 },
+      { x: 100, y: 120 },
+      { x: 120, y: 140 },
+      { x: 130, y: 160 },
+      { x: 100, y: 180 }
+    ]
+  },
+  {
+    id: 20,
+    name: 't',
+    tracePath: [
+      { x: 120, y: 80 },
+      { x: 120, y: 180 },
+      { x: 100, y: 100 },
+      { x: 140, y: 100 }
+    ]
+  },
+  {
+    id: 21,
+    name: 'u',
+    tracePath: [
+      { x: 90, y: 100 },
+      { x: 90, y: 150 },
+      { x: 110, y: 170 },
+      { x: 130, y: 150 },
+      { x: 130, y: 100 }
+    ]
+  },
+  {
+    id: 22,
+    name: 'v',
+    tracePath: [
+      { x: 90, y: 100 },
+      { x: 110, y: 170 },
+      { x: 130, y: 100 }
+    ]
+  },
+  {
+    id: 23,
+    name: 'w',
+    tracePath: [
+      { x: 80, y: 100 },
+      { x: 95, y: 170 },
+      { x: 110, y: 130 },
+      { x: 125, y: 170 },
+      { x: 140, y: 100 }
+    ]
+  },
+  {
+    id: 24,
+    name: 'x',
+    tracePath: [
+      { x: 100, y: 100 },
+      { x: 140, y: 160 },
+      { x: 140, y: 100 },
+      { x: 100, y: 160 }
+    ]
+  },
+  {
+    id: 25,
+    name: 'y',
+    tracePath: [
+      { x: 100, y: 100 },
+      { x: 120, y: 140 },
+      { x: 140, y: 100 },
+      { x: 120, y: 140 },
+      { x: 120, y: 200 }
+    ]
+  },
+  {
+    id: 26,
+    name: 'z',
+    tracePath: [
+      { x: 100, y: 100 },
+      { x: 140, y: 100 },
+      { x: 100, y: 160 },
+      { x: 140, y: 160 }
+    ]
+  }
 ];
 
 export default function AlphabetGame() {
@@ -401,13 +397,16 @@ export default function AlphabetGame() {
         ))}
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={playSound}>
-        <Text style={styles.buttonText}>Play Sound</Text>
-      </TouchableOpacity>
+      {/* Button Container - Changed to horizontal layout */}
+      <View style={styles.buttonRow}>
+        <TouchableOpacity style={styles.button} onPress={playSound}>
+          <Text style={styles.buttonText}>Play Sound</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={nextLetter}>
-        <Text style={styles.buttonText}>Next Letter</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={nextLetter}>
+          <Text style={styles.buttonText}>Next Letter</Text>
+        </TouchableOpacity>
+      </View>
 
       <Text style={styles.stars}>{"★".repeat(stars)}</Text>
     </View>
@@ -455,8 +454,9 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 10,
     marginBottom: 10,
-    width: 180,
+    width: 160,
     alignItems: 'center',
+    marginHorizontal: 5,
   },
   buttonText: {
     color: 'white',
@@ -466,5 +466,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'gold',
     marginTop: 20,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
   },
 });

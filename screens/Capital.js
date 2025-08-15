@@ -312,7 +312,6 @@ const letters = [
   },
 ];
 
-
 export default function AlphabetGame() {
   const [currentLetter, setCurrentLetter] = useState(letters[0]);
   const [tracedPoints, setTracedPoints] = useState([]);
@@ -360,7 +359,6 @@ export default function AlphabetGame() {
         setStars(prev => {
           const newStars = prev + 1;
           Alert.alert('Well done!', `★ You earned star #${newStars}`);
-
           return newStars;
         });
       } else {
@@ -391,8 +389,7 @@ export default function AlphabetGame() {
       >
         <Svg height="100%" width="100%" style={StyleSheet.absoluteFill}>
           <Polyline
-           points={tracedPoints.map(p => `${p.x},${p.y}`).join(' ')}
-
+            points={tracedPoints.map(p => `${p.x},${p.y}`).join(' ')}
             fill="none"
             stroke="blue"
             strokeWidth="4"
@@ -402,19 +399,21 @@ export default function AlphabetGame() {
         {currentLetter.tracePath.map((point, i) => (
           <View
             key={`ref-${i}`}
-
             style={[styles.traceDot, { left: point.x, top: point.y, backgroundColor: 'red' }]}
           />
         ))}
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={playSound}>
-        <Text style={styles.buttonText}>Play Sound</Text>
-      </TouchableOpacity>
+      {/* Button Container - Changed to horizontal layout */}
+      <View style={styles.buttonRow}>
+        <TouchableOpacity style={styles.button} onPress={playSound}>
+          <Text style={styles.buttonText}>Play Sound</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={nextLetter}>
-        <Text style={styles.buttonText}>Next Letter</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={nextLetter}>
+          <Text style={styles.buttonText}>Next Letter</Text>
+        </TouchableOpacity>
+      </View>
 
       <Text style={styles.stars}>{"★".repeat(stars)}</Text>
     </View>
@@ -462,8 +461,9 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 10,
     marginBottom: 10,
-    width: 180,
+    width: 160,
     alignItems: 'center',
+    marginHorizontal: 5,
   },
   buttonText: {
     color: 'white',
@@ -474,4 +474,9 @@ const styles = StyleSheet.create({
     color: 'gold',
     marginTop: 20,
   },
-}); 
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+});
